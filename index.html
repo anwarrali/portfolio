@@ -2,14 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=!, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="images/fin.png" />
@@ -23,11 +24,6 @@
     <link
       href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
       rel="stylesheet"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
   </head>
   <body>
@@ -49,26 +45,28 @@
         <div class="desc">
           <div>
             <h1 data-aos="fade-down">
-              Hello, I'm <span id="name">Anwar Roumanen</span>
+              <span id="name">Anwar Roumanen</span>
             </h1>
-            <h3 data-aos="fade-up">A computer engineering student</h3>
+            <h3 data-aos="fade-up">A Computer Engineering Student</h3>
           </div>
-          <a
-            data-aos="fade-up"
-            href="pdfs/AnwarRoumanenCV.pdf"
-            download
-            class="download-btn"
-            >Download My CV</a
-          >
 
           <div data-aos="fade-up" class="soc">
-            <a href="https://twitter.com" target="_blank"
+            <a
+              href="https://www.instagram.com/anwarrtech?igsh=MXRsZWFwcWY1bGF4aQ%3D%3D&utm_source=qr"
+              target="_blank"
+              aria-label="Instagram"
               ><i class="fab fa-instagram"></i
             ></a>
-            <a href="https://linkedin.com" target="_blank"
+            <a
+              href="https://www.linkedin.com/in/anwar-roumanen?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+              target="_blank"
+              aria-label="Linkedin"
               ><i class="fab fa-linkedin-in"></i
             ></a>
-            <a href="https://github.com" target="_blank"
+            <a
+              href="https://github.com/anwarrali"
+              target="_blank"
+              aria-label="Github"
               ><i class="fab fa-github"></i
             ></a>
           </div>
@@ -77,7 +75,7 @@
       <!--about me-->
       <section class="about">
         <h1 data-aos="fade-up">About Me</h1>
-        <div class="abount-con">
+        <div class="about-con">
           <div class="about-text">
             <p data-aos="fade-up">
               I am a computer engineering student with a passion for software
@@ -85,10 +83,10 @@
               that bridge the gap between technology and everyday life.
             </p>
             <p data-aos="fade-up">
-              My journey in computer engineering has equipped me with a strong
+              My journey in computer engineering has provided me with a solid
               foundation in programming, electronics, and problem-solving. I am
-              eager to apply my skills in real-world projects and contribute to
-              the tech community.
+              passionate about applying my skills to real-world projects and
+              making meaningful contributions to the technology community.
             </p>
           </div>
           <div data-aos="fade-up" class="contact-info">
@@ -103,6 +101,13 @@
               <span>Jericho, Palestine</span>
             </div>
           </div>
+          <a
+            data-aos="fade-up"
+            href="pdfs/AnwarRoumanenCV.pdf"
+            download
+            class="download-btn"
+            >Download My CV</a
+          >
         </div>
       </section>
       <!-- programming skills-->
@@ -183,7 +188,7 @@
           <li>
             <h5>PCB design&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
             <div class="skills-bar">
-              <div class="bar" data-width="50%"></div>
+              <div class="bar" data-width="45%"></div>
             </div>
           </li>
           <li>
@@ -191,7 +196,7 @@
               Assembly&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </h5>
             <div class="skills-bar">
-              <div class="bar" data-width="50%"></div>
+              <div class="bar" data-width="25%"></div>
             </div>
           </li>
         </ul>
@@ -211,7 +216,9 @@
                   assess student knowledge in various fields through dynamic
                   question selection, and automatic grading.
                 </h4>
-                <a href="github.com">Check it out</a>
+                <a href="https://github.com/anwarrali/ExamSystem"
+                  >GitHub Repo</a
+                >
               </div>
             </div>
             <div data-aos="zoom-in" class="soft">
@@ -224,7 +231,12 @@
                   generate and analyze project ideas with clear plans, tools,
                   and tech recommendations
                 </h4>
-                <a href="github.com">Check it out</a>
+                <a href="https://github.com/anwarrali/idea-generator"
+                  >GitHub Repo</a
+                >
+                <a href="https://idea-generator-production.up.railway.app/"
+                   target="_blank">Live demo</a
+                >
               </div>
             </div>
             <div data-aos="zoom-in" class="soft">
@@ -233,11 +245,14 @@
                 <p>click for more information</p>
               </div>
               <div class="card-back">
-                <h4>Frontend consuming APIs.</h4>
-                <a href="github.com">Check it out</a>
+                <h4>
+                  Udacity graduation project , built using JavaScript, Webpack,
+                  and an express server. It integrates public APIs to fetch data
+                </h4>
+                <a href="https://github.com/anwarrali/TravelApp">GitHub Repo</a>
               </div>
             </div>
-            <div data-aos="zoom-in" class="soft">
+            <div data-aos="zoom-in" class="soft" style="display: none">
               <div class="card-front">
                 <h3>Task Manager</h3>
                 <p>click for more information</p>
@@ -263,20 +278,18 @@
               </div>
               <div class="card-back">
                 <h4>
-                  A computer vision system that counts fingers and controls LEDs
+                  A computer vision system using Python that counts fingers and controls LEDs
                   via Arduino.
                 </h4>
-                <a href="github.com">Check it out</a>
               </div>
             </div>
             <div data-aos="zoom-in" class="hard">
               <div class="card-front">
-                <h3>LED Memory Game (Arduino)</h3>
+                <h3>Memory Game (Arduino)</h3>
                 <p>click for more information</p>
               </div>
               <div class="card-back">
                 <h4>A memory game with LEDs programmed on Arduino.</h4>
-                <a href="github.com">Check it out</a>
               </div>
             </div>
             <div data-aos="zoom-in" class="hard">
@@ -292,10 +305,9 @@
                   An audio amplifier on a PCB that boosts microphone signals to
                   a speaker.
                 </h4>
-                <a href="github.com">Check it out</a>
               </div>
             </div>
-            <div data-aos="zoom-in" class="hard">
+            <div data-aos="zoom-in" class="hard" style="display: none">
               <div class="card-front">
                 <h3>Clock Generator with BJT</h3>
                 <p>click for more information</p>
@@ -334,7 +346,7 @@
           </div>
           <div class="timeline-item right" data-aos="fade-left">
             <div class="timeline-content" data-aos="fade-up">
-              <h4>2022 - Current</h4>
+              <h4>2022 - Present</h4>
               <h3>Bachelor's Degree</h3>
               <p>Computer Engineering<br />Al-Quds University<br />GPA: 81%</p>
             </div>
@@ -420,42 +432,40 @@
       </section>
 
       <!--Clubs-->
-      <!--
+
       <section class="clubs">
+        <h2 data-aos="fade-up">Clubs</h2>
         <div class="clubBox">
-          <img src="" alt="" />
-          <h1>Head of strategy</h1>
-          <p>Handesha Sah club</p>
-          <p>
-            Driving strategic planning and initiatives to inspire engineering
-            students, promote creativity, and strengthen collaboration across
-            the community.
-          </p>
+          <img
+            class="gradient"
+            src="images/Gradient2.svg"
+            alt=""
+            width="200px"
+            height="200px"
+            data-aos="zoom-in"
+          />
+          <img class="clublogo" src="images/handesha.png" alt="" />
+          <h3 data-aos="fade-up">2023-present</h3>
+          <h1 data-aos="fade-up">Handesha Sah club</h1>
+          <p data-aos="fade-up">Head of strategy</p>
         </div>
       </section>
-      <section class="contact">
-        <h1>Contact Me</h1>
-        <input type="text" placeholder="Your Name" / >
-        <input type="email" placeholder="Your Email" />
-        <textarea placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-        <div class="contact-info">
-          <div class="info-item">
-            <i class="fas fa-envelope"></i>
-            <a href="mailto:your-email@example.com">your-email@example.com</a>
-          </div>
-        </div>
-      </section>-->
     </article>
-    <footer></footer>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <footer class="footer">
+      <p>© 2025 Anwar Roumanen. All rights reserved.</p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/progressbar.js"></script>
     <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.4.1/dist/js/splide-extension-auto-scroll.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
       AOS.init({
         duration: 1200,
-        once: true,
+        once: false,
       });
     </script>
   </body>
