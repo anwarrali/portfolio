@@ -12,7 +12,6 @@ function isTouchDevice() {
 if (isTouchDevice()) {
   cursorMain.style.display = "none";
   cursorShadow.style.display = "none";
-  
 } else {
   document.addEventListener("mousemove", (e) => {
     cursorMain.style.left = e.clientX + "px";
@@ -110,12 +109,22 @@ createLanguageBar("#language-english", "English", "Advanced", 0.65);
 createLanguageBar("#language-arabic", "Arabic", "Native", 1.0);
 createLanguageBar("#language-turkish", "Turkish", "Advanced", 0.75);
 
-document.querySelectorAll(".soft, .hard, .cert").forEach((card) => {
-  card.addEventListener("click", (e) => {
-    e.stopPropagation(); 
+const cards = document.querySelectorAll(".soft, .hard, .cert");
+
+let flippedCard = null;
+
+cards.forEach((card) => {
+  card.addEventListener("click", () => {
+    if (flippedCard && flippedCard !== card) {
+      flippedCard.classList.remove("flipped");
+    }
+
     card.classList.toggle("flipped");
+
+    flippedCard = card.classList.contains("flipped") ? card : null;
   });
 });
+
 if (!card.classList.contains("flipped")) {
   card.classList.add("flipped");
 } else {
