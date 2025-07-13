@@ -1,8 +1,6 @@
-// === Animated cursor ===
 const cursorMain = document.getElementById("cursorMain");
 const cursorShadow = document.getElementById("cursorShadow");
 
-// Function to detect if it's a touch device
 function isTouchDevice() {
   return (
     "ontouchstart" in window ||
@@ -11,12 +9,10 @@ function isTouchDevice() {
   );
 }
 
-// If it's a touch device, hide the cursor elements
 if (isTouchDevice()) {
   cursorMain.style.display = "none";
   cursorShadow.style.display = "none";
 } else {
-  // Only add mousemove event if it's not a touch device
   document.addEventListener("mousemove", (e) => {
     cursorMain.style.left = e.clientX + "px";
     cursorMain.style.top = e.clientY + "px";
@@ -28,7 +24,6 @@ if (isTouchDevice()) {
   });
 }
 
-// === Animate skill bars ===
 document.addEventListener("DOMContentLoaded", () => {
   const bars = document.querySelectorAll(".skills-bar .bar");
   const observer = new IntersectionObserver(
@@ -51,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// === Header scroll effect ===
 window.addEventListener("scroll", function () {
   const header = document.querySelector("header");
   if (window.scrollY > 10) {
@@ -60,7 +54,6 @@ window.addEventListener("scroll", function () {
     header.classList.remove("scrolled");
   }
 });
-// === Language semicircle progress bars with re-animation on scroll ===
 function createLanguageBar(containerId, language, levelText, percent) {
   const container = document.querySelector(containerId);
 
@@ -97,7 +90,6 @@ function createLanguageBar(containerId, language, levelText, percent) {
   bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
   bar.text.style.textAlign = "center";
 
-  // IntersectionObserver to re-animate every time visible
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -113,8 +105,6 @@ function createLanguageBar(containerId, language, levelText, percent) {
   observer.observe(container);
 }
 
-// Create each language bar
 createLanguageBar("#language-english", "English", "Advanced", 0.65);
 createLanguageBar("#language-arabic", "Arabic", "Native", 1.0);
 createLanguageBar("#language-turkish", "Turkish", "Advanced", 0.75);
-
