@@ -222,7 +222,7 @@ article {
   font-weight: 600;
   position: relative;
 }
-.about-con{
+.about-con {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -464,7 +464,18 @@ article {
   transform: rotateY(360deg);
   z-index: 2;
 }
+.soft.flipped .card-front,
+.hard.flipped .card-front,
+.cert.flipped .card-front {
+  transform: rotateY(180deg);
+}
 
+.soft.flipped .card-back,
+.hard.flipped .card-back,
+.cert.flipped .card-back {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
 .project-container {
   position: relative;
   padding: 30px;

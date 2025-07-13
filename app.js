@@ -12,6 +12,7 @@ function isTouchDevice() {
 if (isTouchDevice()) {
   cursorMain.style.display = "none";
   cursorShadow.style.display = "none";
+  
 } else {
   document.addEventListener("mousemove", (e) => {
     cursorMain.style.left = e.clientX + "px";
@@ -108,3 +109,15 @@ function createLanguageBar(containerId, language, levelText, percent) {
 createLanguageBar("#language-english", "English", "Advanced", 0.65);
 createLanguageBar("#language-arabic", "Arabic", "Native", 1.0);
 createLanguageBar("#language-turkish", "Turkish", "Advanced", 0.75);
+
+document.querySelectorAll(".soft, .hard, .cert").forEach((card) => {
+  card.addEventListener("click", (e) => {
+    e.stopPropagation(); 
+    card.classList.toggle("flipped");
+  });
+});
+if (!card.classList.contains("flipped")) {
+  card.classList.add("flipped");
+} else {
+  card.classList.remove("flipped");
+}
