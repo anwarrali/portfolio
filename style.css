@@ -7,31 +7,29 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  cursor: none;
   top: 0;
-}
 
-.cursor-main,
-.cursor-shadow {
-  position: fixed;
-  width: 24px;
-  height: 24px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='48' viewBox='0 0 24 24'%3E%3Cpath fill='%238882B5' d='M4.5.79v22.42l6.56-6.57h9.29L4.5.79z'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  pointer-events: none;
-  z-index: 9999;
 }
+a{
+  text-decoration: solid;
+ 
+}
+  #magic-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(167, 138, 191, 0.4), transparent 70%);
+    filter: blur(40px);
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    mix-blend-mode: lighten; /* Optional: makes it glow-like */
+  }
 
-.cursor-main {
-  filter: drop-shadow(0 0 2px #a78abf);
-}
 
-.cursor-shadow {
-  opacity: 0.4;
-  filter: drop-shadow(0 0 3px #000);
-  transition: transform 0.1s ease;
-}
 
 /*header*/
 header {
@@ -113,18 +111,27 @@ article {
   transform: translateY(-40px);
 }
 
-.intro h1 {
-  font-size: 50px;
-  margin: 2px;
-}
 
+.start{
+  font-size: 1.8rem;
+  margin: 10px 0;
+  text-wrap: wrap;
+  max-width: 500px;
+}
 #name {
   color: #a78abf;
+  font-size: 3rem;
+  margin-top: 0;
+  padding-top: 0;
 }
+
+
 .intro h3 {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
+  margin-top: 0;
+  padding-top: 0;
   border-right: 2px solid #a78abf;
   animation: typing 5s steps(10000, end) forwards, blink-caret 0.7s step-end 5s;
 }
@@ -141,7 +148,7 @@ article {
     width: 0;
   }
   100% {
-    width: 28ch;
+    width: 30ch;
   }
 }
 
@@ -176,7 +183,6 @@ article {
   transform: scale(0.99);
   background-color: #bfaad0;
   filter: drop-shadow(1px 1px 10px #bfaad0);
-  cursor: none;
 }
 
 .download-btn {
@@ -197,7 +203,6 @@ article {
   transform: scale(0.99);
   background-color: #bfaad0;
   filter: drop-shadow(1px 1px 10px #bfaad0);
-  cursor: none;
 }
 
 /*about me*/
@@ -389,7 +394,6 @@ article {
   border-radius: 10px;
   transition: all 0.4s ease-in-out;
   opacity: 0.6;
-  cursor: none;
   margin: 15px;
   overflow: hidden;
   position: relative;
@@ -450,6 +454,7 @@ article {
   color: #c7b9d3;
   padding: 1px;
   margin: 0;
+  text-decoration:underline !important;
 }
 .hard:hover .card-front,
 .hard:active .card-front,
@@ -594,7 +599,7 @@ article {
   display: block;
   width: 60px;
   height: 3px;
-  background: #a78abf; /* accent color */
+  background: #a78abf;
   margin: 10px auto 0;
   border-radius: 2px;
 }
@@ -755,7 +760,6 @@ article {
   border-radius: 10px;
   transition: all 0.4s ease-in-out;
   opacity: 0.6;
-  cursor: none;
   margin: 15px;
   overflow: hidden;
   position: relative;
@@ -815,18 +819,15 @@ article {
   text-decoration: solid;
   margin: 10px;
   width: 150px;
-  border: 1px solid #bfaad0;
   padding: 15px;
   display: flex;
   justify-content: center;
   transition: all 0.3s ease-out;
+  cursor: pointer;
 }
 .cert-btn:hover {
-  color: #0c0318;
   transform: scale(0.99);
-  background-color: #bfaad0;
-  filter: drop-shadow(1px 1px 10px #bfaad0);
-  cursor: none;
+
 }
 /*clubs*/
 .clubs {

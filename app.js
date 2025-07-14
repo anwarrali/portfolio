@@ -1,28 +1,4 @@
-const cursorMain = document.getElementById("cursorMain");
-const cursorShadow = document.getElementById("cursorShadow");
 
-function isTouchDevice() {
-  return (
-    "ontouchstart" in window ||
-    navigator.maxTouchPoints > 0 ||
-    navigator.msMaxTouchPoints > 0
-  );
-}
-
-if (isTouchDevice()) {
-  cursorMain.style.display = "none";
-  cursorShadow.style.display = "none";
-} else {
-  document.addEventListener("mousemove", (e) => {
-    cursorMain.style.left = e.clientX + "px";
-    cursorMain.style.top = e.clientY + "px";
-
-    setTimeout(() => {
-      cursorShadow.style.left = e.clientX + "px";
-      cursorShadow.style.top = e.clientY + "px";
-    }, 80);
-  });
-}
 
 document.addEventListener("DOMContentLoaded", () => {
   const bars = document.querySelectorAll(".skills-bar .bar");
@@ -60,7 +36,7 @@ function createLanguageBar(containerId, language, levelText, percent) {
   const bar = new ProgressBar.SemiCircle(container, {
     strokeWidth: 6,
     color: "#bfaad0",
-    trailColor: "#281537",
+    trailColor: "#55376bff",
     trailWidth: 1,
     easing: "easeInOut",
     duration: 1400,
@@ -125,8 +101,10 @@ cards.forEach((card) => {
   });
 });
 
-if (!card.classList.contains("flipped")) {
-  card.classList.add("flipped");
-} else {
-  card.classList.remove("flipped");
-}
+  const glow = document.getElementById("magic-glow");
+
+  document.addEventListener("mousemove", (e) => {
+    glow.style.top = `${e.clientY}px`;
+    glow.style.left = `${e.clientX}px`;
+  });
+

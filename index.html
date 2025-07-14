@@ -20,15 +20,14 @@
       type="text/css"
     />
     <title>Anwar Roumanen</title>
-    <link rel="stylesheet" href="projects.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
       rel="stylesheet"
     />
   </head>
   <body>
-    <div class="cursor-main" id="cursorMain"></div>
-    <div class="cursor-shadow" id="cursorShadow"></div>
+    <div id="magic-glow"></div>
+
     <header>
       <div class="brand"><img src="images/myLogo.png" alt="" /></div>
       <div class="name">
@@ -39,15 +38,18 @@
       <!--intro-->
       <section class="intro">
         <div data-aos="fade-down" class="avatar">
-          <img src="images/Gradient.svg" alt="" class="blur" />
+          <img src="images/Gradient2.svg" alt="" class="blur" />
           <img src="images/me.png" alt="my avatar" class="my-avatar" />
         </div>
         <div class="desc">
           <div>
-            <h1 data-aos="fade-down">
+            <h1 data-aos="fade-up">
               <span id="name">Anwar Roumanen</span>
             </h1>
             <h3 data-aos="fade-up">A Computer Engineering Student</h3>
+            <h1 class="start" data-aos="fade-up">
+              Still exploring new logic while shaping tomorrow’s technology.
+            </h1>
           </div>
 
           <div data-aos="fade-up" class="soc">
@@ -446,6 +448,7 @@
             height="200px"
             data-aos="zoom-in"
           />
+
           <img class="clublogo" src="images/handesha.png" alt="" />
           <h3 data-aos="fade-up">2023-present</h3>
           <h1 data-aos="fade-up">Handesha Sah club</h1>
@@ -458,7 +461,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/progressbar.js"></script>
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
