@@ -1,3 +1,22 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body > * {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 body {
   color: white;
   background: linear-gradient(#0c0318, #281537, #0c0318);
@@ -83,11 +102,15 @@ article {
 /*introduction*/
 .intro {
   display: flex;
+
   flex-direction: row;
   gap: 30px;
   height: 85vh;
   justify-content: center;
   align-items: center;
+}
+.text{
+  padding: 15px;
 }
 .avatar {
   position: relative;
@@ -404,6 +427,12 @@ article {
   flex-direction: column;
   gap: 5px;
   box-shadow: 0 0 2px #281537, 0 0 2px #a78abf;
+}
+.soft, .hard, .cert {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+  contain: layout paint;
 }
 
 .card-front,
@@ -997,4 +1026,5 @@ footer {
     left: 0;
     text-align: left;
   }
+
 }
