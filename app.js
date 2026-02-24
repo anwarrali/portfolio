@@ -173,6 +173,9 @@ function loadSkills(category = "all") {
   }
 
   setTimeout(animateSkills, 200);
+  if (typeof AOS !== "undefined") {
+    AOS.refresh();
+  }
 }
 
 function createCategorySection(category) {
