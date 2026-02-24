@@ -89,7 +89,8 @@ header.scrolled {
   font-size: 30px;
   filter: drop-shadow(1px 1px 5px white);
   border-right: 2px solid #a78abf;
-  animation: typing2 3.5s steps(50, end) infinite,
+  animation:
+    typing2 3.5s steps(50, end) infinite,
     blink-caret 0.7s step-end infinite;
 }
 
@@ -152,7 +153,9 @@ article {
   margin-top: 0;
   padding-top: 0;
   border-right: 2px solid #a78abf;
-  animation: typing 5s steps(10000, end) forwards, blink-caret 0.7s step-end 5s;
+  animation:
+    typing 5s steps(10000, end) forwards,
+    blink-caret 0.7s step-end 5s;
 }
 @keyframes typing2 {
   from {
@@ -310,6 +313,7 @@ article {
 }
 
 /*programming skills*/
+/* Programming skills */
 .progSkills {
   width: 70vw;
   margin-top: 20px;
@@ -337,53 +341,265 @@ article {
     display: block;
     width: 100px;
     height: 3px;
-    background: #a78abf; /* accent color */
+    background: #a78abf;
     margin: 10px auto 0;
     border-radius: 2px;
   }
+}
 
-  ul {
-    list-style: none;
-    margin: 0;
+/* Category tabs */
+.skill-categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.category-btn {
+  background: transparent;
+  border: 1px solid #a78abf;
+  color: #bfaad0;
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+  background: #a78abf;
+  color: #0c0318;
+  transform: scale(0.95);
+}
+
+.category-btn.active {
+  background: #a78abf;
+  color: #0c0318;
+}
+
+.skills-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skill-category {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.skill-category h3 {
+  color: #bfaad0;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: left;
+  border-left: 3px solid #a78abf;
+  padding-left: 15px;
+}
+
+.skills-list {
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  padding: 0;
+}
+
+.skills-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px; /* Increased to accommodate percentage */
+  position: relative;
+}
+
+.skills-list h5 {
+  min-width: 160px;
+  margin: 0;
+  font-size: 16px;
+  text-align: left;
+  color: white;
+}
+
+.skills-bar {
+  flex: 1;
+  height: 10px; /* Slightly taller for better visibility */
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 5px;
+  margin-left: 15px;
+  overflow: visible; /* Changed from hidden to show percentage */
+  position: relative;
+}
+
+.bar {
+  height: 100%;
+  background: linear-gradient(90deg, #a78abf, #bfaad0);
+  border-radius: 5px;
+  width: 0%;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Percentage display for ALL screens */
+.bar-percentage {
+  position: absolute;
+  right: -40px; /* Position outside the bar */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  font-weight: 600;
+  color: #bfaad0;
+  background: rgba(167, 138, 191, 0.2);
+  padding: 2px 6px;
+  border-radius: 12px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* Alternative: Show percentage on the right side of the bar */
+.skill-percent-fixed {
+  margin-left: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #bfaad0;
+  min-width: 45px;
+  text-align: right;
+  background: rgba(167, 138, 191, 0.15);
+  padding: 3px 8px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+}
+
+/* Hover effect enhancement */
+.skills-list li:hover .bar {
+  background: linear-gradient(90deg, #b89fd1, #d6b5e8);
+  box-shadow: 0 0 15px rgba(167, 138, 191, 0.5);
+}
+
+.skills-list li:hover .skill-percent-fixed {
+  background: rgba(167, 138, 191, 0.3);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .progSkills {
+    width: 90vw;
+    padding: 15px;
+  }
+
+  .skill-category h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .skills-list li {
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .skills-list h5 {
+    min-width: 120px;
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+
+  .skills-bar {
+    width: calc(100% - 120px); /* Account for h5 width */
+    margin-left: 0;
+  }
+
+  .skill-percent-fixed {
+    font-size: 12px;
+    min-width: 40px;
+    padding: 2px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    margin-bottom: 25px;
+  }
+
+  .skills-list h5 {
+    min-width: auto;
     width: 100%;
-    padding: 0;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
 
-    li {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 5px;
-      font-size: 18px;
-      align-items: center;
+  .skills-bar {
+    width: 100%;
+    margin-bottom: 5px;
+  }
 
-      .skills-bar {
-        position: relative;
-        flex: 1;
-        height: 8px;
-        background: white;
-        border-radius: 5px;
-        margin-left: 10px;
-        overflow: hidden;
+  .skill-percent-fixed {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 14px;
+    background: rgba(167, 138, 191, 0.25);
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
 
-        .bar {
-          height: 100%;
-          background: #a78abf;
-          border-radius: 5px;
-          width: 0%;
-          transition: width 1s ease-in-out;
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-      }
-    }
+  /* Alternative layout for very small screens */
+  .skill-category {
+    padding: 10px;
+  }
 
-    li:hover .skills-bar .bar {
-      background: #a78abf;
-      transform: scale(1.04);
-      filter: drop-shadow(1px 1px 30px #a78abf);
-      transition: 2s ease;
-    }
+  .bar-percentage {
+    right: 5px; /* Adjust for small screens */
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .skill-percent-fixed {
+    position: relative;
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 0;
+    align-self: flex-end;
+  }
+
+  .skills-list li {
+    margin-bottom: 30px;
+  }
+}
+/* Add this to ensure percentages show on all screens */
+.skills-list li {
+  position: relative;
+}
+
+.skills-list li::after {
+  content: attr(data-percentage);
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #bfaad0;
+  background: rgba(167, 138, 191, 0.2);
+  padding: 2px 8px;
+  border-radius: 12px;
+  z-index: 10;
+}
+
+@media (max-width: 480px) {
+  .skills-list li::after {
+    font-size: 11px;
+    padding: 2px 6px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -422,7 +638,9 @@ article {
   align-items: center;
   flex-direction: column;
   gap: 5px;
-  box-shadow: 0 0 2px #281537, 0 0 2px #a78abf;
+  box-shadow:
+    0 0 2px #281537,
+    0 0 2px #a78abf;
 }
 .soft,
 .hard,
@@ -519,7 +737,9 @@ article {
   height: 70%;
   margin: 30px auto;
   text-align: center;
-  box-shadow: 0 0 1px #281537, 0 0 1px #a78abf;
+  box-shadow:
+    0 0 1px #281537,
+    0 0 1px #a78abf;
 }
 .project-container::before {
   content: "";
@@ -528,7 +748,9 @@ article {
   height: 1px;
   background: #bfaad0;
   border-radius: 50px;
-  box-shadow: 0 0 10px #bfaad0, 0 0 20px #bfaad0;
+  box-shadow:
+    0 0 10px #bfaad0,
+    0 0 20px #bfaad0;
   animation: moveAround 15s linear infinite;
   z-index: 2;
 }
@@ -796,7 +1018,9 @@ article {
   align-items: center;
   flex-direction: column;
   gap: 5px;
-  box-shadow: 0 0 2px #281537, 0 0 2px #a78abf;
+  box-shadow:
+    0 0 2px #281537,
+    0 0 2px #a78abf;
   .img {
     width: 80%;
     border-radius: 0px;

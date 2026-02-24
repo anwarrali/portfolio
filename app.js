@@ -1,5 +1,4 @@
-
-
+// note : skills data after line 100
 document.addEventListener("DOMContentLoaded", () => {
   const bars = document.querySelectorAll(".skills-bar .bar");
   const observer = new IntersectionObserver(
@@ -14,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.5 },
   );
 
   bars.forEach((bar) => {
@@ -56,7 +55,7 @@ function createLanguageBar(containerId, language, levelText, percent) {
         bar.setText(
           `<div style="font-size:1.2rem;">${language}</div>` +
             `<div style="font-size:0.9rem;">${levelText}</div>` +
-            `<div style="font-size:1rem;">${value}%</div>`
+            `<div style="font-size:1rem;">${value}%</div>`,
         );
       }
       bar.text.style.color = "#bfaad0";
@@ -75,7 +74,7 @@ function createLanguageBar(containerId, language, levelText, percent) {
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.5 },
   );
 
   observer.observe(container);
@@ -101,10 +100,173 @@ cards.forEach((card) => {
   });
 });
 
-  const glow = document.getElementById("magic-glow");
+const glow = document.getElementById("magic-glow");
 
-  document.addEventListener("mousemove", (e) => {
-    glow.style.top = `${e.clientY}px`;
-    glow.style.left = `${e.clientX}px`;
+document.addEventListener("mousemove", (e) => {
+  glow.style.top = `${e.clientY}px`;
+  glow.style.left = `${e.clientX}px`;
+});
+
+// Skills data
+const skillCategories = {
+  frontend: {
+    title: "Frontend Development",
+    skills: [
+      { name: "HTML5/CSS3", percentage: 90 },
+      { name: "JavaScript (ES6+)", percentage: 85 },
+      { name: "Tailwind CSS", percentage: 50 },
+      { name: "Responsive Design", percentage: 88 },
+      { name: "Flutter UI Development", percentage: 60 },
+      { name: "Javafx", percentage: 85 },
+    ],
+  },
+  backend: {
+    title: "Backend Development",
+    skills: [
+      { name: "Java", percentage: 75 },
+      { name: "Python FastAPI", percentage: 70 },
+      { name: "RESTful APIs", percentage: 85 },
+      { name: "Node.js", percentage: 75 },
+      { name: "Docker Containerization", percentage: 60 },
+    ],
+  },
+  database: {
+    title: "Database & Migrations",
+    skills: [
+      { name: "Oracle Database", percentage: 80 },
+      { name: "PostgreSQL", percentage: 70 },
+      { name: "Alembic Migrations", percentage: 65 },
+    ],
+  },
+  hardware: {
+    title: "Hardware & IoT",
+    skills: [
+      { name: "Arduino Development", percentage: 92 },
+      { name: "ESP32 & IoT", percentage: 85 },
+      { name: "Circuit Design", percentage: 85 },
+      { name: "Embedded Systems", percentage: 80 },
+    ],
+  },
+  architecture: {
+    title: "Architecture & Patterns",
+    skills: [
+      { name: "MVVM Architecture", percentage: 60 },
+      { name: "MVC Pattern", percentage: 85 },
+      { name: "State Management", percentage: 60 },
+    ],
+  },
+};
+
+// Load skills function
+function loadSkills(category = "all") {
+  const wrapper = document.querySelector(".skills-wrapper");
+  if (!wrapper) return;
+
+  wrapper.innerHTML = "";
+
+  if (category === "all") {
+    Object.values(skillCategories).forEach((cat) => {
+      wrapper.appendChild(createCategorySection(cat));
+    });
+  } else {
+    wrapper.appendChild(createCategorySection(skillCategories[category]));
+  }
+
+  setTimeout(animateSkills, 200);
+}
+
+function createCategorySection(category) {
+  const section = document.createElement("div");
+  section.className = "skill-category";
+
+  const title = document.createElement("h3");
+  title.textContent = category.title;
+
+  const list = document.createElement("ul");
+  list.className = "skills-list";
+
+  category.skills.forEach((skill) => {
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+      <h5>${skill.name}</h5>
+      <div class="skills-bar">
+        <div class="bar" style="width: 0%" data-percent="${skill.percentage}"></div>
+      </div>
+      <span class="skill-percent-fixed">${skill.percentage}%</span>
+    `;
+
+    list.appendChild(li);
   });
 
+  section.appendChild(title);
+  section.appendChild(list);
+
+  return section;
+}
+
+function animateSkills() {
+  const bars = document.querySelectorAll(".skills-list .bar");
+  bars.forEach((bar) => {
+    const percent = bar.getAttribute("data-percent");
+    setTimeout(() => {
+      bar.style.width = percent + "%";
+    }, 100);
+  });
+}
+
+function animateSkills() {
+  const bars = document.querySelectorAll(".skills-list .bar");
+  bars.forEach((bar) => {
+    const percent = bar.getAttribute("data-percent");
+    setTimeout(() => {
+      bar.style.width = percent + "%";
+    }, 100);
+  });
+}
+
+function initCategoryTabs() {
+  const tabs = document.querySelectorAll(".category-btn");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => t.classList.remove("active"));
+
+      tab.classList.add("active");
+
+      const category = tab.getAttribute("data-category");
+      loadSkills(category);
+    });
+  });
+}
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const bars = entry.target.querySelectorAll(".bar");
+        bars.forEach((bar) => {
+          bar.style.width = "0%";
+        });
+
+        setTimeout(() => {
+          bars.forEach((bar) => {
+            const percent = bar.getAttribute("data-percent");
+            bar.style.width = percent + "%";
+          });
+        }, 100);
+      }
+    });
+  },
+  { threshold: 0.3 },
+);
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadSkills("all");
+  initCategoryTabs();
+
+  const wrapper = document.querySelector(".skills-wrapper");
+  if (wrapper) {
+    observer.observe(wrapper);
+  }
+});
