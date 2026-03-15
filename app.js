@@ -445,21 +445,32 @@ document.addEventListener("mousemove", (e) => {
   myN = (e.clientY / window.innerHeight - 0.5) * 2;
 });
 
+let icon1Base = { x: 5.8, y: 2.2 };
+let icon2Base = { x: -5.2, y: -2.0 };
+
 function handleResponsive() {
   const w = window.innerWidth;
-  // Keyboard scale
+  // Keyboard scale & visibility
   if (w < 600) {
-    kbGroup.scale.setScalar(0.45);
-    codeIcon1.scale.setScalar(0.25);
-    codeIcon2.scale.setScalar(0.22);
+    kbGroup.visible = false;
+    codeIcon1.scale.setScalar(0.32);
+    icon1Base = { x: 2.2, y: 3.2 };
+    codeIcon2.scale.setScalar(0.28);
+    icon2Base = { x: -2.2, y: -3.2 };
   } else if (w < 1000) {
+    kbGroup.visible = true;
     kbGroup.scale.setScalar(0.75);
     codeIcon1.scale.setScalar(0.35);
+    icon1Base = { x: 5.8, y: 2.2 };
     codeIcon2.scale.setScalar(0.3);
+    icon2Base = { x: -5.2, y: -2.0 };
   } else {
+    kbGroup.visible = true;
     kbGroup.scale.setScalar(1);
     codeIcon1.scale.setScalar(0.42);
-    codeIcon2.scale.setScalar(0.38);
+    icon1Base = { x: 5.8, y: 2.2 };
+    codeIcon2.scale.setScalar(0.4);
+    icon2Base = { x: -5.2, y: -2.0 };
   }
 }
 window.addEventListener("resize", () => {
@@ -486,15 +497,15 @@ let t3 = 0;
   codeIcon1.rotation.x += 0.008;
   codeIcon1.rotation.y += 0.012;
   codeIcon1.rotation.z = Math.sin(t3 * 0.9) * 0.18;
-  codeIcon1.position.y = 2.2 + Math.sin(t3 * 1.1) * 0.28;
-  codeIcon1.position.x = 5.8 + mxN * 0.08;
+  codeIcon1.position.y = icon1Base.y + Math.sin(t3 * 1.1) * 0.28;
+  codeIcon1.position.x = icon1Base.x + mxN * 0.08;
 
   // Icon 2 bottom-left — opposite phase
   codeIcon2.rotation.x -= 0.007;
   codeIcon2.rotation.y += 0.01;
   codeIcon2.rotation.z = Math.sin(t3 * 0.7 + 2.0) * 0.18;
-  codeIcon2.position.y = -2.0 + Math.sin(t3 * 0.95 + 1.5) * 0.28;
-  codeIcon2.position.x = -5.2 + mxN * 0.08;
+  codeIcon2.position.y = icon2Base.y + Math.sin(t3 * 0.95 + 1.5) * 0.28;
+  codeIcon2.position.x = icon2Base.x + mxN * 0.08;
 
   // Lights orbit
   pt1.position.x = Math.sin(t3) * 7;
