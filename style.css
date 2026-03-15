@@ -574,6 +574,14 @@ section {
   stroke-linejoin: round;
 }
 
+/* ── SKILLS GRID (Static) ── */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
 /* ── SKILLS MARQUEE ── */
 .skills-marquee {
   width: 100vw;
