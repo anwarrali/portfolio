@@ -27,6 +27,11 @@ body {
   overflow-x: hidden;
   cursor: none;
 }
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
 
 /* ── INTRO ── */
 #intro {
@@ -71,6 +76,7 @@ body {
     var(--y1) 100%
   );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   opacity: 0;
   transform: translateY(80px) scale(0.85);
@@ -108,6 +114,22 @@ body {
 }
 .intro-bar.grow {
   width: clamp(200px, 28vw, 380px);
+}
+
+@media (max-width: 600px) {
+  .intro-content {
+    width: 100%;
+    padding: 0 2rem;
+    text-align: center;
+  }
+  .intro-letters {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .intro-sub-line {
+    letter-spacing: 0.2em;
+    line-height: 1.5;
+  }
 }
 .intro-overlay {
   position: fixed;
@@ -190,6 +212,14 @@ canvas#bg-canvas {
   transform: translate(-50%, -50%);
 }
 
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-glow {
+    display: none !important;
+  }
+}
+
 /* ── NAV ── */
 nav {
   position: fixed;
@@ -220,6 +250,7 @@ nav.show {
   font-size: 1.3rem;
   background: linear-gradient(135deg, var(--p2), var(--y1));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -0.5px;
 }
@@ -347,6 +378,7 @@ nav.show {
     var(--y1) 100%
   );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-style: normal;
   font-weight: 800;
@@ -974,6 +1006,7 @@ footer {
   margin-bottom: 0.4rem;
   background: linear-gradient(135deg, var(--p2), var(--y1));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .social-links {

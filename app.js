@@ -444,11 +444,31 @@ document.addEventListener("mousemove", (e) => {
   mxN = (e.clientX / window.innerWidth - 0.5) * 2;
   myN = (e.clientY / window.innerHeight - 0.5) * 2;
 });
+
+function handleResponsive() {
+  const w = window.innerWidth;
+  // Keyboard scale
+  if (w < 600) {
+    kbGroup.scale.setScalar(0.45);
+    codeIcon1.scale.setScalar(0.25);
+    codeIcon2.scale.setScalar(0.22);
+  } else if (w < 1000) {
+    kbGroup.scale.setScalar(0.75);
+    codeIcon1.scale.setScalar(0.35);
+    codeIcon2.scale.setScalar(0.3);
+  } else {
+    kbGroup.scale.setScalar(1);
+    codeIcon1.scale.setScalar(0.42);
+    codeIcon2.scale.setScalar(0.38);
+  }
+}
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
+  handleResponsive();
 });
+handleResponsive();
 
 /* ── ANIMATION ── */
 let t3 = 0;
