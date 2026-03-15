@@ -28,10 +28,30 @@ body {
   overflow-x: hidden;
   cursor: none;
 }
-@media (pointer: coarse) {
+@media (pointer: coarse), (max-width: 1024px) {
   body {
-    cursor: auto;
+    cursor: auto !important;
   }
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-glow {
+    display: none !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
+}
+
+a,
+button,
+.nav-cta,
+.social-link,
+.project-link,
+.btn-primary,
+.btn-secondary {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  position: relative;
+  z-index: 10000 !important; /* Above everything */
 }
 
 /* ── INTRO ── */
@@ -162,7 +182,7 @@ canvas#bg-canvas {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: -2;
   pointer-events: none;
 }
 #three-canvas {
@@ -171,7 +191,7 @@ canvas#bg-canvas {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: -1;
   pointer-events: none !important;
   opacity: 0.22;
 }
@@ -232,7 +252,7 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 9000;
   padding: 1.2rem 3rem;
   display: flex;
   align-items: center;
@@ -300,7 +320,7 @@ nav.show {
   text-decoration: none;
   transition: all 0.3s;
   position: relative;
-  z-index: 110;
+  z-index: 9001;
 }
 .nav-cta:hover {
   background: rgba(124, 58, 237, 0.12);
@@ -314,7 +334,7 @@ nav.show {
   align-items: center;
   justify-content: center;
   position: relative;
-  z-index: 2;
+  z-index: 10;
   padding: 8rem 3rem 4rem;
   text-align: center;
 }
